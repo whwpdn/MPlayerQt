@@ -125,9 +125,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="qtmaind.lib QtCored4.lib QtGuid4.lib strmiids.lib quartz.lib"
+				AdditionalDependencies="qtmaind.lib QtCored4.lib QtGuid4.lib Strmbasd.lib quartz.lib Strmiids.lib"
 				OutputFile="$(OutDir)\$(ProjectName).exe"
-				AdditionalLibraryDirectories="$(QTDIR)\lib"
+				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;;&quot;C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 			/>
@@ -163,6 +163,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\DSCodec.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DSEncoder.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\DShowPlayer.cpp"
 				>
 			</File>
@@ -180,6 +188,14 @@
 			Filter="h"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\DSCodec.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DSEncoder.h"
+				>
+			</File>
 			<File
 				RelativePath=".\DShowPlayer.h"
 				>

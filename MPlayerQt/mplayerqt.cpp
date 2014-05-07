@@ -13,11 +13,14 @@ MPlayerQt::MPlayerQt(QWidget *parent, Qt::WFlags flags)
 	SetCurrentFile("");
 	setUnifiedTitleAndToolBarOnMac(true);
 	m_pDSPlayer = new DShowPlayer();
+
+
 }
 
 MPlayerQt::~MPlayerQt()
 {
-
+	if(m_pDSPlayer)
+		delete m_pDSPlayer;
 }
 void MPlayerQt::closeEvent(QCloseEvent *event)
 {
@@ -82,6 +85,15 @@ void MPlayerQt::CreateActions()
 
 	m_pPauseAct = new QAction(QIcon("image/5.png"),tr("Pause"),this);
 	connect(m_pPauseAct,SIGNAL(triggered()),this,SLOT(PauseSlot()));
+
+	
+
+	QMap<QString,DSCodec*>::iterator it,end;
+	for(it=m_Encoder.mapCodec.begin(),end=m_Encoder.mapCodec.end();it!=end;++it)
+	{
+		DSCodec *pCodec = it.value();
+		ui.listCodec->insertItem(0, pCodec->m_strCodecName);
+	}
 }
 void MPlayerQt::CreateMenus()
 {

@@ -5,7 +5,9 @@
 #include "ui_mplayerqt.h"
 #include <QCloseEvent>
 #include <QFileDialog>
+
 #include "DShowPlayer.h"
+#include "DSCodec.h"
 class MPlayerQt : public QMainWindow
 {
 	Q_OBJECT
@@ -49,6 +51,8 @@ private:
 
 	QString m_strCurFile;
 	DShowPlayer *m_pDSPlayer;
+private:
+	DSEncoder m_Encoder;
 
 };
 

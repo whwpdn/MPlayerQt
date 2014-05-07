@@ -5,6 +5,9 @@ DShowPlayer::DShowPlayer()
 	m_pGraph=NULL;
 	m_pControl=NULL;
 	m_pVideoWindow=NULL;
+	
+	//int iNumberCodec = m_Encoder.GetSize();
+	
 }
 DShowPlayer::~DShowPlayer()
 {
@@ -55,12 +58,14 @@ int DShowPlayer::OpenFile(LPCWSTR strFileName)
 
 int DShowPlayer::Play()
 {
-	 m_pControl->Run();
+	if(m_pControl)
+		m_pControl->Run();
 	 //m_pSeeking->Run();
 	return 0;
 }
 void DShowPlayer::Stop()
-{
+{	
+	if(!m_pControl) return;
 	m_pControl->Stop();
 	LONGLONG pos =0;
 	m_pSeeking->SetPositions(&pos,AM_SEEKING_AbsolutePositioning, NULL, AM_SEEKING_NoPositioning);
@@ -68,12 +73,14 @@ void DShowPlayer::Stop()
 }
 void DShowPlayer::Pause()
 {
+	if(!m_pControl) return;
 	m_pControl->Pause();
 }	
 
 void DShowPlayer::Display(HWND hWnd)
 {	
 	//display
+	if(!m_pVideoWindow) return;
 	m_pVideoWindow->put_Owner((OAHWND)hWnd);
 	RECT rcDisplay;
 	::GetClientRect(hWnd,&rcDisplay);

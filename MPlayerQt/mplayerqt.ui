@@ -6,26 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>721</width>
+    <height>408</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MPlayerQt</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="labelVideo">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>581</width>
-      <height>351</height>
+      <x>9</x>
+      <y>10</y>
+      <width>701</width>
+      <height>341</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,0">
+     <item>
+      <widget class="QLabel" name="labelVideo">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listCodec"/>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -33,7 +42,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>721</width>
      <height>21</height>
     </rect>
    </property>
